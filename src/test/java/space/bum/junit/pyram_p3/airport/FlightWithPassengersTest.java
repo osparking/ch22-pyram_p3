@@ -22,8 +22,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
-import com.manning.junitbook.testpyramid.airport.Passenger;
-
 import space.bum.junit.pyram_p3.airport.producers.FlightProducer;
 
 @RunWith(Arquillian.class)

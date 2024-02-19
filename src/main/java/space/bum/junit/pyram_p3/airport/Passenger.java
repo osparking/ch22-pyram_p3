@@ -2,6 +2,7 @@ package space.bum.junit.pyram_p3.airport;
 
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,4 +68,24 @@ public class Passenger {
     return "승객: " + name + ", 아이디: " + getIdentifier()
         + ", 출신국: " + getCountryCode();
   }
+  
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(identifier);
+  }
+  
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Passenger other = (Passenger) obj;
+    return Objects.equals(identifier, other.identifier);
+  }
+
 }

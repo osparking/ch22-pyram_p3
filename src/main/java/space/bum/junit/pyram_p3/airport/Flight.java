@@ -12,6 +12,15 @@ public class Flight {
   private String origin;
   private String destination;
   private boolean flying;
+  private int distance;
+
+  public int getDistance() {
+    return distance;
+  }
+
+  public void setDistance(int distance) {
+    this.distance = distance;
+  }
 
   public boolean isFlying() {
     return flying;

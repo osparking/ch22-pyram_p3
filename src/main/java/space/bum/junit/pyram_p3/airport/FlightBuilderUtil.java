@@ -6,15 +6,16 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FlightBuilderUtil {
-  public static Flight buildFlightFromCsv()
+  public static Flight buildFlightFromCsv(String flightNumber, int seats,
+      String fileName)
       throws FileNotFoundException, IOException {
-    Flight flight = new Flight("KE007", 50);
+    Flight flight = new Flight(flightNumber, seats);
 
     flight.setOrigin("Seoul(ICN)");
     flight.setDestination("Shanghai(PVG)");
 
     try (BufferedReader br = new BufferedReader(
-        new FileReader("src/test/resources/flights_information.csv"))) {
+        new FileReader(fileName))) {
       String line = null;
       while ((line = br.readLine()) != null) {
         String[] passengerStr = line.toString().split(";");

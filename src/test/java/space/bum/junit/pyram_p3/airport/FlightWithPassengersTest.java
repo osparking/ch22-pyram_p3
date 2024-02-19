@@ -13,6 +13,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,6 +44,16 @@ public class FlightWithPassengersTest {
   public MockitoRule mockitoRule = MockitoJUnit.rule();
 
   private static Map<Passenger, Integer> passengersPointsMap = new HashMap<>();
+
+  @BeforeClass
+  public static void setUp() {
+    passengersPointsMap.put(new Passenger("940207-6459423", "Susan Todd", "GB"),
+        210);
+    passengersPointsMap
+        .put(new Passenger("860602-2749821", "Harry Christensen", "GB"), 420);
+    passengersPointsMap.put(new Passenger("850205-3917188", "정성민", "KR"),
+        630);
+  }
 
   @Test(expected = RuntimeException.class)
   public void testNumberOfSeatsCannotBeExceeded() throws IOException {

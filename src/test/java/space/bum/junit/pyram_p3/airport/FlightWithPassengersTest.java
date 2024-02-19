@@ -51,7 +51,7 @@ public class FlightWithPassengersTest {
     passengersPointsMap.put(new Passenger("940207-6459423", "Susan Todd", "GB"),
         210);
     passengersPointsMap
-        .put(new Passenger("860602-2749821", "Harry Christensen", "GB"), 420);
+        .put(new Passenger("860602-6749821", "Harry Christensen", "GB"), 420);
     passengersPointsMap.put(new Passenger("850205-3917188", "정성민", "KR"),
         630);
   }
@@ -65,7 +65,7 @@ public class FlightWithPassengersTest {
         .get(new Passenger("940207-6459423", "Susan Todd", "GB")).longValue());
     assertEquals(420,
         distanceManager.getPassengersPointsMap()
-            .get(new Passenger("860602-2749821", "Harry Christensen", "GB"))
+            .get(new Passenger("860602-6749821", "Harry Christensen", "GB"))
             .longValue());
     assertEquals(630, distanceManager.getPassengersPointsMap()
         .get(new Passenger("850205-3917188", "정성민", "KR")).longValue());

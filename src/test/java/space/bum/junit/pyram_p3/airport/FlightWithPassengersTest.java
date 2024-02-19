@@ -1,6 +1,7 @@
 package space.bum.junit.pyram_p3.airport;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,6 +21,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
+import com.manning.junitbook.testpyramid.airport.Passenger;
 
 import space.bum.junit.pyram_p3.airport.producers.FlightProducer;
 
@@ -53,6 +56,21 @@ public class FlightWithPassengersTest {
         .put(new Passenger("860602-2749821", "Harry Christensen", "GB"), 420);
     passengersPointsMap.put(new Passenger("850205-3917188", "정성민", "KR"),
         630);
+  }
+
+  @Test
+  public void testFlightsDistances() {
+    when(distanceManager.getPassengersPointsMap())
+        .thenReturn(passengersPointsMap);
+
+    assertEquals(210, distanceManager.getPassengersPointsMap()
+        .get(new Passenger("940207-6459423", "Susan Todd", "GB")).longValue());
+    assertEquals(420,
+        distanceManager.getPassengersPointsMap()
+            .get(new Passenger("860602-2749821", "Harry Christensen", "GB"))
+            .longValue());
+    assertEquals(630, distanceManager.getPassengersPointsMap()
+        .get(new Passenger("850205-3917188", "정성민", "KR")).longValue());
   }
 
   @Test(expected = RuntimeException.class)
